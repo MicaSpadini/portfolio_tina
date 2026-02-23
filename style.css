@@ -1,1 +1,152 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #3a0ca3, #4361ee);
+  color: white;
+}
 
+/* HERO */
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px;
+}
+
+.hero-image img {
+  width: 350px;
+  border-radius: 20px;
+}
+
+.glass-card {
+  backdrop-filter: blur(15px);
+  background: rgba(255,255,255,0.1);
+  padding: 40px;
+  border-radius: 20px;
+}
+
+.btn {
+  display: inline-block;
+  margin: 10px 10px 0 0;
+  padding: 10px 20px;
+  background: white;
+  color: #3a0ca3;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #7209b7;
+  color: white;
+}
+
+/* PROJETOS */
+
+.projects {
+  padding: 60px;
+  background: white;
+  color: #333;
+}
+
+.project {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.carousel {
+  position: relative;
+  width: 300px;
+}
+
+.carousel img {
+  width: 100%;
+  display: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.carousel img.active {
+  display: block;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #3a0ca3;
+  color: white;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.prev { left: -20px; }
+.next { right: -20px; }
+
+/* FERRAMENTAS */
+
+.tools {
+  padding: 60px;
+  text-align: center;
+}
+
+.tools-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.tool {
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.tool img {
+  width: 60px;
+}
+
+.tool span {
+  display: block;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.tool:hover {
+  transform: translateY(-10px);
+}
+
+.tool:hover span {
+  opacity: 1;
+}
+
+/* MODAL */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  font-size: 40px;
+  cursor: pointer;
+}
