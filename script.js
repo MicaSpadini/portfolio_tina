@@ -1,4 +1,6 @@
-// CARROSSEL
+// =========================
+// CARROSSEL NORMAL (fora do modal)
+// =========================
 
 document.querySelectorAll(".carousel").forEach(carousel => {
   let index = 0;
@@ -17,9 +19,12 @@ document.querySelectorAll(".carousel").forEach(carousel => {
     index = (index - 1 + images.length) % images.length;
     images[index].classList.add("active");
   });
+});
 
-  // MODAL
-  // MODAL COM CARROSSEL
+
+// =========================
+// MODAL COM NAVEGAÇÃO + BARRINHAS + SWIPE
+// =========================
 
 let currentImages = [];
 let currentIndex = 0;
@@ -29,9 +34,11 @@ const modalImg = document.getElementById("modal-img");
 const closeBtn = document.querySelector(".modal-close");
 const nextBtn = document.querySelector(".modal-next");
 const prevBtn = document.querySelector(".modal-prev");
+const progressContainer = document.getElementById("modal-progress");
 
+
+// Abrir modal ao clicar imagem
 document.querySelectorAll(".carousel").forEach(carousel => {
-
   const images = carousel.querySelectorAll("img");
 
   images.forEach((img, index) => {
@@ -41,24 +48,64 @@ document.querySelectorAll(".carousel").forEach(carousel => {
 
       modalImg.src = currentImages[currentIndex].src;
       modal.classList.add("active");
+
+      updateProgress();
     });
   });
-
 });
+
+
+// Atualizar barrinhas
+function updateProgress() {
+  progressContainer.innerHTML = "";
+
+  currentImages.forEach((_, index) => {
+    const bar = document.createElement("span");
+    if (index <= currentIndex) {
+      bar.classList.add("active");
+    }
+    progressContainer.appendChild(bar);
+  });
+}
+
 
 // Próxima imagem
 nextBtn.addEventListener("click", () => {
   currentIndex = (currentIndex + 1) % currentImages.length;
   modalImg.src = currentImages[currentIndex].src;
+  updateProgress();
 });
+
 
 // Imagem anterior
 prevBtn.addEventListener("click", () => {
   currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
   modalImg.src = currentImages[currentIndex].src;
+  updateProgress();
 });
 
-// Fechar
+
+// Swipe mobile
+let startX = 0;
+
+modal.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+});
+
+modal.addEventListener("touchend", (e) => {
+  let endX = e.changedTouches[0].clientX;
+
+  if (startX - endX > 50) {
+    nextBtn.click();
+  }
+
+  if (endX - startX > 50) {
+    prevBtn.click();
+  }
+});
+
+
+// Fechar modal
 closeBtn.addEventListener("click", () => {
   modal.classList.remove("active");
 });
