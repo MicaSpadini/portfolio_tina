@@ -128,17 +128,56 @@ body {
 .modal {
   display: none;
   position: fixed;
-  z-index: 999;
   inset: 0;
-  background: rgba(0,0,0,0.9);
-
-  display: flex;
+  background: rgba(0, 0, 0, 0.9);
   justify-content: center;
   align-items: center;
+  z-index: 999;
+}
+
+.modal.active {
+  display: flex;
 }
 
 .modal-content {
   max-width: 90vw;
   max-height: 90vh;
   object-fit: contain;
+}
+
+.modal-close,
+.modal-prev,
+.modal-next {
+  position: absolute;
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: white;
+  font-size: 30px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.modal-close {
+  top: 30px;
+  right: 40px;
+}
+
+.modal-prev {
+  left: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.modal-next {
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.modal-close:hover,
+.modal-prev:hover,
+.modal-next:hover {
+  background: rgba(255,255,255,0.4);
 }
