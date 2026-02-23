@@ -316,59 +316,95 @@ p {
 /* Responsividade mobile */
 
 /* ========================= */
-/* RESPONSIVO */
+/* MOBILE RESPONSIVO */
 /* ========================= */
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
 
   /* HERO */
 
   .hero {
-    flex-direction: column;
+    flex-direction: column-reverse;
+    align-items: center;
     text-align: center;
-    gap: 40px;
     padding: 60px 20px;
-  }
-
-  .hero-image img {
-    width: 250px;
+    gap: 40px;
   }
 
   .glass-card {
-    padding: 30px;
+    width: 100%;
+    padding: 35px 25px;
+  }
+
+  .hero-image img {
+    width: 80%;
+    max-width: 300px;
   }
 
   h1 {
-    font-size: 32px;
+    font-size: 34px;
   }
 
   h2 {
     font-size: 18px;
   }
 
+  .btn {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+  }
+
+
+  /* ========================= */
   /* PROJETOS */
+  /* ========================= */
+
+  .projects {
+    padding: 80px 20px;
+  }
+
+  .projects h2 {
+    text-align: center;
+    margin-bottom: 40px;
+  }
 
   .project {
     flex-direction: column;
+    gap: 25px;
     text-align: center;
-    gap: 30px;
+    margin-bottom: 80px;
   }
 
   .carousel {
     width: 100%;
-    max-width: 300px;
+    max-width: 350px;
   }
 
-  .prev,
-  .next {
-    left: 10px;
-    right: 10px;
+  .carousel img {
+    border-radius: 20px;
   }
 
+  .project-info {
+    max-width: 400px;
+  }
+
+
+  /* ========================= */
   /* FERRAMENTAS */
+  /* ========================= */
+
+  .tools {
+    padding: 80px 20px;
+  }
 
   .tools-grid {
-    gap: 30px;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .tool img {
+    width: 75px;
   }
 
 }
