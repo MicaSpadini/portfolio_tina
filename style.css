@@ -37,6 +37,7 @@ p {
 .hero {
   display: flex;
   align-items: center;
+  text-align: center;
   justify-content: center;
   gap: 80px;
   padding: 100px 10%;
@@ -90,9 +91,18 @@ p {
 
 /* BOTÕES */
 
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
 .btn {
-  display: inline-block;
-  margin: 10px 10px 0 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 12px 22px;
   background: rgba(255,255,255,0.15);
   color: white;
